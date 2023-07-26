@@ -1,0 +1,5 @@
+만약 모니터 연결 시 화면이 우분투 화면이 아닌경우
+
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install ubuntu-desktop

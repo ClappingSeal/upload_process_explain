@@ -1,0 +1,20 @@
+mkdir -p ~/ros2_study
+sudo apt install tree
+sudo apt install ros-galactic-turtlesim
+
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install python3-pip
+sudo apt-get install python3-dev
+sudo pip install future
+sudo apt-get install screen wxgtk libxml libxlts
+sudo pip install pyserial
+sudo pip install dronekit
+sudo pip install MAVProxy
+
+위의 과정이 끝나면
+cd ros2_study
+source ~/.bashrc
+sb
+git clone "https://github.com/ClappingSeal/src.git"
+cb

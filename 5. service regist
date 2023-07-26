@@ -1,0 +1,38 @@
+   1. arm 서비스 만들기
+
+sudo touch /etc/systemd/system/ros2-arm-node.service
+sudo nano /etc/systemd/system/ros2-arm-node.service
+
+[Unit]
+Description=ROS2 Arm Node
+
+[Service]
+ExecStart=/bin/bash -c 'export ROS_LOG_DIR=/path/to/log; export ROS_DOMAIN_ID=216; source /opt/ros/galactic/setup.bash; source /home/pi/ros2_study/install/local_setup.bash; ros2 run arm_package arm_node'
+
+[Install]
+WantedBy=multi-user.target
+
+
+   2. apf 서비스 만들기
+
+sudo touch /etc/systemd/system/ros2-apf-node.service
+sudo nano /etc/systemd/system/ros2-apf-node.service
+
+[Unit]
+Description=ROS2 APF Node
+
+[Service]
+ExecStart=/bin/bash -c 'export ROS_LOG_DIR=/path/to/log; export ROS_DOMAIN_ID=216; source /opt/ros/galactic/setup.bash; source /home/pi/ros2_study/install/local_setup.bash; ros2 run apf_package apf_node'
+
+[Install]
+WantedBy=multi-user.target
+
+
+   3. 서비스 등록
+sudo systemctl enable ros2-arm-node
+sudo systemctl enable ros2-apf-node
+sudo systemctl daemon-reload
+sudo systemctl restart ros2-arm-node.service
+sudo systemctl restart ros2-apf-node.service
+
+

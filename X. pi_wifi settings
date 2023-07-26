@@ -1,0 +1,17 @@
+추후 와이 변동을 위한 메모
+
+sudo nano /etc/netplan/50-cloud-init.yaml
+sudo reboot
+ifconfig wlan0
+
+
+와이파이가 안잡힐때
+iwconfig
+iwlist wlan1 scan   (만약 여기서 아무 것도 안 나온다면)
+
+sudo nano/etc/wpa_supplicant/wpa_supplicant.conf
+(위에 들어가서...나머지는 인터넷 검색)
+
+
+sudo ifconfig wlan0 down
+sudo ifconfig wlan0 up
