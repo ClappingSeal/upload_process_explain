@@ -1,13 +1,34 @@
-   1. arm 서비스 만들기
+   0. 서비스 만들기 기본
 
-sudo touch /etc/systemd/system/ros2-arm-node.service
-sudo nano /etc/systemd/system/ros2-arm-node.service
+sudo touch /etc/systemd/system/ros2-XXX-node.service
+sudo nano /etc/systemd/system/ros2-XXX-node.service
 
 [Unit]
 Description=ROS2 Arm Node
+XXXXXX
 
 [Service]
-ExecStart=/bin/bash -c 'export ROS_LOG_DIR=/path/to/log; export ROS_DOMAIN_ID=216; source /opt/ros/galactic/setup.bash; source /home/pi/ros2_study/install/local_setup.bash; ros2 run arm_package arm_node'
+ExecStart=/bin/bash -c 'export ROS_LOG_DIR=/path/to/log; export ROS_DOMAIN_ID=216; source /opt/ros/galactic/setup.bash; source /home/XXX/ros2_study/install/local_setup.bash; ros2 run XXX_pacakge XXXXXX'
+
+[Install]
+WantedBy=multi-user.target
+
+
+   1. arm 서비스 만들기
+
+sudo touch /etc/systemd/system/ros2-armX-node.service
+sudo nano /etc/systemd/system/ros2-armX-node.service
+
+[Unit]
+Description=ROS2 Arm Node
+After=dev-ttyACM0.device
+BindsTo=dev-ttyACM0.device
+
+[Service]
+ExecStartPre=/bin/sleep 10
+ExecStartPre=/bin/bash -c 'if [ -e /dev/ttyACM0 ]; then exit 0; else exit 1; fi'
+ExecStart=/bin/bash -c 'export ROS_LOG_DIR=/path/to/log; export ROS_DOMAIN_ID=216; source /opt/ros/galactic/setup.bash; source /home/piX/ros2_study/install/local_setup.bash; ros2 run arm_package arm_nodeX'
+Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
@@ -22,17 +43,33 @@ sudo nano /etc/systemd/system/ros2-apf-node.service
 Description=ROS2 APF Node
 
 [Service]
-ExecStart=/bin/bash -c 'export ROS_LOG_DIR=/path/to/log; export ROS_DOMAIN_ID=216; source /opt/ros/galactic/setup.bash; source /home/pi/ros2_study/install/local_setup.bash; ros2 run apf_package apf_node'
+ExecStart=/bin/bash -c 'export ROS_LOG_DIR=/path/to/log; export ROS_DOMAIN_ID=216; source /opt/ros/galactic/setup.bash; source /home/pi/ros2_study/install/local_setup.bash; ros2 run apf_package apf_nodeXXX'
 
 [Install]
 WantedBy=multi-user.target
 
 
-   3. 서비스 등록
-sudo systemctl enable ros2-arm-node
-sudo systemctl enable ros2-apf-node
+  3. position 서비스 만들기
+  
+sudo touch /etc/systemd/system/ros2-position-node.service
+sudo nano /etc/systemd/system/ros2-position-node.service
+  
+[Unit]
+Description=ROS2 POSITION Node
+After=dev-ttyACM0.device
+BindsTo=dev-ttyACM0.device
+
+[Service]
+ExecStartPre=/bin/sleep 10
+ExecStart=/bin/bash -c 'export ROS_LOG_DIR=/path/to/log; export ROS_DOMAIN_ID=216; source /opt/ros/galactic/setup.bash; source /home/piX/ros2_study/install/local_setup.bash; ros2 run position_package position_pubXXX'
+
+[Install]
+WantedBy=multi-user.target
+
+
+
+   X. 서비스 등록
+sudo systemctl enable ros2-XXX-node
 sudo systemctl daemon-reload
-sudo systemctl restart ros2-arm-node.service
-sudo systemctl restart ros2-apf-node.service
-
-
+sudo systemctl restart ros2-XXX-node
+sudo systemctl status ros2-XXX
