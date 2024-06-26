@@ -13,11 +13,12 @@ GPIO.setup(PIN, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
 try:
     while True:
-        if GPIO.input(PIN) == GPIO.HIGH:
+        print('waiting for pressing')
+        if GPIO.input(PIN) == GPIO.LOW:
             print('Button pressed, executing command...')
             subprocess.run(['ros2', 'run', 'drone_package', 'drone_node1'])
-            time.sleep(0.5)  # Debounce를 위해 잠시 대기
-        time.sleep(0.1)  # CPU 사용률을 낮추기 위해 잠시 대기
+            time.sleep(0.5)
+        time.sleep(0.1)
 finally:
     GPIO.cleanup()  # 종료 시 GPIO 핀 정리
 
