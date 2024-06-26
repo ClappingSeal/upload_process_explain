@@ -38,7 +38,6 @@ After=multi-user.target
 Type=simple
 ExecStart=/usr/bin/python3 /home/pi/button_listener.py
 Restart=on-failure
-User=pi
 
 [Install]
 WantedBy=multi-user.target
