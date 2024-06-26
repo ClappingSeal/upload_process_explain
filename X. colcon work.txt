@@ -1,0 +1,5 @@
+source /opt/ros/galactic/setup.bash
+
+sudo rosdep init
+rosdep update
+rosdep install --from-paths src --ignore-src -r -y
