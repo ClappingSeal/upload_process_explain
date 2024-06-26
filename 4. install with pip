@@ -13,6 +13,9 @@ sudo pip install pyserial
 sudo pip install dronekit
 sudo pip install MAVProxy
 
+sudo apt-get update
+sudo apt-get install python3-rpi.gpio
+
 위의 과정이 끝나면
 cd ros2_study
 source ~/.bashrc
