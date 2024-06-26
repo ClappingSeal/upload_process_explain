@@ -14,7 +14,8 @@ GPIO.setup(PIN, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 try:
     while True:
         if GPIO.input(PIN) == GPIO.HIGH:
-            subprocess.run(['xdotool', 'type', 'sb'])
+            print('Button pressed, executing command...')
+            subprocess.run(['ros2', 'run', 'drone_package', 'drone_node1'])
             time.sleep(0.5)  # Debounce를 위해 잠시 대기
         time.sleep(0.1)  # CPU 사용률을 낮추기 위해 잠시 대기
 finally:
