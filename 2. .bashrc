@@ -1,3 +1,4 @@
+alias nb="nano ~/.bashrc"
 alias sb="source ~/.bashrc; echo \"Bashrc is reloaded\""
 alias galactic="echo \"ROS2 Galatic is activated\"; ros_domain; source /opt/ros/galactic/setup.bash"
 alias ros_domain="export ROS_DOMAIN_ID=216"
