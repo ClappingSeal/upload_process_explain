@@ -1,5 +1,6 @@
 추후 와이 변동을 위한 메모
 
+sudo ssh-keygen -t rsa -f /ect/ssh/ssh_host_rsa_key -N ''
 sudo nano /etc/netplan/50-cloud-init.yaml
 sudo reboot
 ifconfig wlan0
