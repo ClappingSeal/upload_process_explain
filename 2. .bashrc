@@ -6,6 +6,8 @@ alias rs="echo \"ros2_study is activated\"; galactic; source ~/ros2_study/instal
 alias cb="colcon build"
 source ~/ros2_study/install/setup.bash
 source /opt/ros/galactic/setup.bash
-alias update="cd; rm -rf ros2_study; mkdir ros2_study; cd ros2_study; git clone "https://github.com/ClappingSeal/src.git"; cb"
 
+
+# nono
+alias update="cd; rm -rf ros2_study; mkdir ros2_study; cd ros2_study; git clone "https://github.com/ClappingSeal/src.git"; cb"
 git clone "https://github.com/ClappingSeal/src.git"
