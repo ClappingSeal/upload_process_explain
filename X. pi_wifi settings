@@ -1,6 +1,6 @@
 추후 와이 변동을 위한 메모
+wifi sulzung ipnida
 
-sudo ssh-keygen -t rsa -f /ect/ssh/ssh_host_rsa_key -N ''
 sudo nano /etc/netplan/50-cloud-init.yaml
 sudo reboot
 ifconfig wlan0
@@ -10,11 +10,12 @@ ifconfig wlan0
 iwconfig
 iwlist wlan1 scan   (만약 여기서 아무 것도 안 나온다면)
 
+ama lansun
 sudo nano/etc/wpa_supplicant/wpa_supplicant.conf
 (위에 들어가서...나머지는 인터넷 검색)
-
 
 sudo ifconfig wlan0 down
 sudo ifconfig wlan0 up
 
+sudo ssh-keygen -t rsa -f /ect/ssh/ssh_host_rsa_key -N ''
 ssh-keygen -R 192.168.0.X
